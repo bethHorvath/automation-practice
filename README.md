@@ -14,6 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### Automation Tests
+To run the tests in a headless state use `npx playwright test`. 
+To run the tests in a headed manner, in the browser, run `npx playwright test --headed`
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

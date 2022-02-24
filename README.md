@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To get set up:
+To run a specific test, copy the relative path of your test file and run: 
+`npx playwright test automation-practice/tests/app.spec.ts`.
+
+To see the report after running a test, run `npx playwright show-report`
 ## Available Scripts
 
 In the project directory, you can run:

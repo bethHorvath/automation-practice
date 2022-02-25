@@ -5,7 +5,11 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('testing react app', () => {
-    test('should render Learn React text', async ({page}) => {
-        expect(page.locator('text=Learn React')).toBeDefined();
-    })
+  test('should render Learn React text', async ({page}) => {
+      expect(page.locator('text=Learn React')).toBeDefined();
+  });
+
+    test('should render Lets Start Automating text', async ({page}) => {
+      expect(page.locator('text=Lets Start Automating')).toBeDefined()
+    });
 });

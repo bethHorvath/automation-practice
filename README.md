@@ -2,11 +2,14 @@ This app has been created with the sole purpose of helping others learn how to w
 
 If you'd like to practice writing automation tests, please follow the instructions below.
 # Getting Started 
-First you'll need to clone this repo to your local machine using `git clone` 
-The navigate to the root directory in your terminal
+First you'll need to clone this repo to your local machine using `git clone`.
+
+Then navigate to the root directory in your terminal.
+
 Run `npm i` to install all the necessary packages
 
-To run the app, use `npm start`
+To run the app, use `npm start`.
+
 This runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
@@ -15,13 +18,15 @@ You may also see any lint errors in the console.
 
 ## For automation testing
 The config is set up to run the app locally when you run the tests so you don't need to worry about starting the application.
+
 To run all the tests in a headless state use:
 `npx playwright test`
 
 To run the tests in a headed manner, in the browser, run `npx playwright test --headed`
 
 To run a specific test file, copy the relative path of that file (right click on the file and `copy relative path`) and run: 
-`npx playwright test <your test file path>`. 
+`npx playwright test <your test file path>`
+
 e.g. `npx playwright test automation-practice/tests/app.spec.ts`
 
 To see the report after running a test, run `npx playwright show-report`

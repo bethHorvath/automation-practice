@@ -5,7 +5,16 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('testing react app', () => {
-    test('should render Lets Start Automating text', async ({page}) => {
-      expect(page.locator('text=Lets Start Automating')).toBeTruthy()
-    });
+  test('should render Lets Start Automating text', async ({ page }) => {
+    await expect(page.locator('text=Lets Start Automating')).toBeTruthy();
+  });
+
+  test('the Lets start automating text should be red', async ({ page }) => {
+    const locator = page.locator('text=Lets Start Automating');
+    await expect(locator).toHaveCSS('color', 'rgb(255, 0, 0)');
+  });
+
+  test('should render Sky website text', async ({ page }) => {
+    await expect(page.locator('text=Sky website')).toBeVisible();
+  });
 });

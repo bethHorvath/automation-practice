@@ -1,8 +1,9 @@
 import React from 'react';
 
-import './App.css';
+import '../App.css';
+import { Homepage } from './homepage';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -10,9 +11,10 @@ function App() {
         <a className="App-link" href="https://www.sky.com/" target="_blank" rel="noopener noreferrer">
           Sky website
         </a>
+        <Homepage />
       </header>
     </div>
   );
-}
+};
 
 export default App;

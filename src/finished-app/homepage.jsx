@@ -3,19 +3,29 @@ import styled from 'styled-components';
 
 import { testPages } from './helpers';
 
-const StyledPage = styled.div`
+const Table = styled.div`
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  align-content: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 1rem;
+`;
+
+const StyledElement = styled.div`
+  padding: 5rem;
+  border: 1rem solid black;
+  font: 1.5rem Arial;
 `;
 
 // eslint-disable-next-line prettier/prettier
 const displayPages = () => Object.entries(testPages).map(pageInfo => {
     return (
-      <a key={pageInfo[0]} href={pageInfo[1]} target="_blank">
-        {pageInfo[0]}
-      </a>
+      <StyledElement key={pageInfo[0]}>
+        <a href={pageInfo[1]} target="_blank">
+          {pageInfo[0]}
+        </a>
+      </StyledElement>
     );
   });
 
-export const Homepage = () => <StyledPage>{displayPages()}</StyledPage>;
+export const Homepage = () => <Table>{displayPages()}</Table>;

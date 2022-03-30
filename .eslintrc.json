@@ -17,12 +17,9 @@
     },
     "ecmaVersion": "latest"
   },
-  "plugins": ["react", "@typescript-eslint"
-  ],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "semi": ["error", "always"
-    ],
-    "quotes": ["error", "single"
-    ]
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
   }
 }

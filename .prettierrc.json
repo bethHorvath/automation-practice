@@ -16,7 +16,8 @@
           "**/*.scss"
         ],
         "options": {
-          "singleQuote": false
+          "singleQuote": true,
+          "arrow-parens": "avoid"
         }
       }
     ]

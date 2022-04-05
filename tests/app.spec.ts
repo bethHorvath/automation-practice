@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('testing react app', () => {
   test('should render Lets Start Automating text', async ({ page }) => {
-    await expect(page.locator('text=Lets Start Automating')).toBeTruthy();
+    await expect(page.locator('text=Lets Start Automating')).toBeVisible();
   });
 
   test('the Lets start automating text should be red', async ({ page }) => {

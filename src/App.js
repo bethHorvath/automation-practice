@@ -48,7 +48,7 @@ const keyPressFunction = e => {
       console.log('you hit d');
       break;
     default:
-      console.log('type whatever you want!');
+      console.log('you hit something else');
   }
 };
 

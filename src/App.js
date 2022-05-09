@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { confluenceLinks } from './constants';
+
 const StyledApp = styled.div`
   text-align: center;
 `;
@@ -65,22 +67,30 @@ const App = () => {
     console.log(`the event is: ${e.type} and this was triggered on:`, e.target);
   };
 
+  const confluenceDocs = () =>
+    confluenceLinks.map((confluenceEl, i) => (
+      <StyledLink key={i} href={confluenceEl.link}>
+        {confluenceEl.name}
+      </StyledLink>
+    ));
+
   return (
-    <StyledApp>
+    <StyledApp data-test-id="body">
       <StyledHeader>
         <StyledParagraph className="text">Lets start automating!</StyledParagraph>
         <StyledParagraph className="text">But first, we are learning about the DOM!</StyledParagraph>
-        <StyledParagraph>Practicing CSS</StyledParagraph>
+        <StyledParagraph className="text">Practicing CSS</StyledParagraph>
         <StyledLink href="https://www.sky.com/" target="_blank" rel="noopener noreferrer">
           Sky website
         </StyledLink>
-        <button type="button" onClick={changeStyling}>
+        {confluenceDocs()}
+        <button type="button" onClick={changeStyling} data-test-id="change-colour-button">
           Change color
         </button>
         <form onSubmit={handleSubmit}>
           <button type="submit">Submit</button>
         </form>
-        <input id="textbox" type="text" onKeyDown={outputPrinter} />
+        <input id="textbox" type="text" onKeyDown={outputPrinter} data-test-id="key-press-input" />
         <div id="output">{keyPress}</div>
       </StyledHeader>
     </StyledApp>

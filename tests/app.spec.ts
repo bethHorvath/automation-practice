@@ -17,4 +17,10 @@ test.describe('testing react app', () => {
   test('should render Sky website text', async ({ page }) => {
     await expect(page.locator('text=Sky website')).toBeVisible();
   });
+
+  test('text should display when a key is pressed', async ({ page }) => {
+    await page.focus('data-test-id=key-press-input');
+    await page.keyboard.press('Enter');
+    await expect(page.locator('text=you pressed: Enter')).toBeVisible();
+  });
 });

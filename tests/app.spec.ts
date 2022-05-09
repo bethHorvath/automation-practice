@@ -25,4 +25,10 @@ test.describe('testing react app', () => {
       'https://wiki.at.sky/display/LT/Digital+Service+Test+-+Team+Calendar'
     );
   });
+
+  test('text should display when a key is pressed', async ({ page }) => {
+    await page.focus('data-test-id=key-press-input');
+    await page.keyboard.press('Enter');
+    await expect(page.locator('text=you pressed: Enter')).toBeVisible();
+  });
 });

@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
+import { toBeVisible } from '@testing-library/jest-dom/dist/matchers';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('localhost:3000');
+  await page.goto('np');
 });
 
 test.describe('testing react app', () => {
@@ -16,5 +17,11 @@ test.describe('testing react app', () => {
 
   test('should render Sky website text', async ({ page }) => {
     await expect(page.locator('text=Sky website')).toBeVisible();
+  });
+
+  test.only('text renders on key press', async ({ page }) => {
+    await page.focus('data-test-id=key-press-input');
+    await page.keyboard.press('Enter');
+    await expect(page.locator('text=you pressed: Enter')).toBeVisible();
   });
 });

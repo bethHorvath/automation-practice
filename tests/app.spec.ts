@@ -18,6 +18,14 @@ test.describe('testing react app', () => {
     await expect(page.locator('text=Sky website')).toBeVisible();
   });
 
+  test('Team Calendar is displayed as link on app page', async ({ page }) => {
+    const calendarText = await page.locator('text=Team Calendar');
+    await expect(calendarText).toHaveAttribute(
+      'href',
+      'https://wiki.at.sky/display/LT/Digital+Service+Test+-+Team+Calendar'
+    );
+  });
+
   test('text should display when a key is pressed', async ({ page }) => {
     await page.focus('data-test-id=key-press-input');
     await page.keyboard.press('Enter');

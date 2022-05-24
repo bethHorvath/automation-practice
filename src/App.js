@@ -59,25 +59,6 @@ const StyledImage = styled.img`
 const StyledLink = styled.a``;
 
 const App = () => {
-  const [keyPress, setKeyPress] = useState('');
-
-  const outputPrinter = e => {
-    keyPressFunction(e);
-    setKeyPress(`you pressed: ${e.key}`);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(`the event is: ${e.type} and this was triggered on:`, e.target);
-  };
-
-  const confluenceDocs = () =>
-    confluenceLinks.map((confluenceEl, i) => (
-      <StyledLink key={i} href={confluenceEl.link}>
-        {confluenceEl.name}
-      </StyledLink>
-    ));
-
   return (
     <StyledApp data-test-id="body">
       <StyledHeader>

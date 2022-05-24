@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+
+import { confluenceLinks } from './constants';
 
 const StyledApp = styled.div`
   text-align: left;
@@ -57,8 +59,27 @@ const StyledImage = styled.img`
 const StyledLink = styled.a``;
 
 const App = () => {
+  const [keyPress, setKeyPress] = useState('');
+
+  const outputPrinter = e => {
+    keyPressFunction(e);
+    setKeyPress(`you pressed: ${e.key}`);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(`the event is: ${e.type} and this was triggered on:`, e.target);
+  };
+
+  const confluenceDocs = () =>
+    confluenceLinks.map((confluenceEl, i) => (
+      <StyledLink key={i} href={confluenceEl.link}>
+        {confluenceEl.name}
+      </StyledLink>
+    ));
+
   return (
-    <StyledApp>
+    <StyledApp data-test-id="body">
       <StyledHeader>
         <StyledTitle>Test Chapter</StyledTitle>
         <StyledSubTitle>

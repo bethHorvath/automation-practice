@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
+import { toBeVisible } from '@testing-library/jest-dom/dist/matchers';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('localhost:3000');
+  await page.goto('np');
 });
 
 test.describe('testing react app', () => {

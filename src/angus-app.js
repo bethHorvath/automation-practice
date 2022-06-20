@@ -1,97 +1,91 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { confluenceLinks } from './constants';
+import { confluenceLinks } from './team-tasks/testConfluenceTasksConstants';
 
 const StyledApp = styled.div`
-  text-align: center;
-`;
-
-const StyledParagraph = styled.p`
-  color: red;
+  text-align: left;
 `;
 
 const StyledHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: black;
+  background-color: #fff;
+  min-height: 10vh;
+  margin-left: 20px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 `;
 
-const StyledLink = styled.a`
-  color: #61dafb;
+const StyledTitle = styled.p`
+  font-size: 28px;
 `;
 
-const random = number => {
-  return Math.floor(Math.random() * (number + 1));
-};
+const StyledSubTitle = styled.p`
+  font-size: 12px;
+  color: #5e6c84;
+`;
 
-const backgroundChange = () => {
-  return `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-};
+const StyledGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 896px;
+  border: 1px solid #c1c7d0;
+`;
 
-const changeStyling = () => {
-  console.log('The button has been clicked and the width and font family has been changed');
-  document.body.style.width = '30%';
-  document.body.style.backgroundColor = backgroundChange();
-  document.body.style.fontFamily = 'monospace';
-};
+const StyledTitleRow = styled.div`
+  border: 1px solid #c1c7d0;
+  color: rgb(0, 0, 255);
+  background-color: #e6fcff;
+  text-align: center;
+  font-weight: bold;
+`;
 
-const keyPressFunction = e => {
-  switch (e.key) {
-    case 'Enter':
-      console.log('you hit enter');
-      break;
-    case 'd':
-      console.log('you hit d');
-      break;
-    default:
-      console.log('you hit something else');
-  }
-};
+const StyledPictureRow = styled.div`
+  border: 1px solid #c1c7d0;
+  display: flex;
+  text-align: center;
+  height: 146px;
+`;
+
+const StyledCol = styled.div`
+  flex: ${props => props.size};
+  padding: 7px;
+`;
+
+const StyledCell = styled.div`
+  flex: 1 0 21%;
+`;
+
+const StyledImage = styled.img`
+  width: 100px;
+  height: 100px;
+  margin: 23px;
+`;
+
+const confluenceDocs = () =>
+  confluenceLinks.map((confluenceEl, i) => (
+    <StyledCell key={i}>
+      <StyledTitleRow>
+        <StyledCol size={1}>{confluenceEl.name}</StyledCol>
+      </StyledTitleRow>
+      <StyledPictureRow>
+        <StyledCol size={1}>
+          <a href={confluenceEl.link} data-test-id={confluenceEl.name}>
+            <StyledImage src={confluenceEl.imgLink} />
+          </a>
+        </StyledCol>
+      </StyledPictureRow>
+    </StyledCell>
+  ));
 
 const App = () => {
-  const [keyPress, setKeyPress] = useState('');
-
-  const outputPrinter = e => {
-    keyPressFunction(e);
-    setKeyPress(`you pressed: ${e.key}`);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(`the event is: ${e.type} and this was triggered on:`, e.target);
-  };
-
-  const confluenceDocs = () =>
-    confluenceLinks.map((cofluenceEl, i) => (
-      <StyledLink key={i} href={cofluenceEl.link}>
-        {cofluenceEl.name}
-      </StyledLink>
-    ));
-
   return (
-    <StyledApp>
+    <StyledApp data-test-id="body">
       <StyledHeader>
-        <StyledParagraph className="text">Lets start automating!</StyledParagraph>
-        <StyledParagraph className="text">But first, we are learning about the DOM!</StyledParagraph>
-        <StyledParagraph>Practicing CSS</StyledParagraph>
-        <StyledLink href="https://www.sky.com/" target="_blank" rel="noopener noreferrer">
-          Sky website
-        </StyledLink>
-        {confluenceDocs()}
-        <button type="button" onClick={changeStyling}>
-          Change color
-        </button>
-        <form onSubmit={handleSubmit}>
-          <button type="submit">Submit</button>
-        </form>
-        <input id="textbox" type="text" onKeyDown={outputPrinter} data-test-id="key-press-input" />
-        <div id="output">{keyPress}</div>
+        <StyledTitle>Test Chapter</StyledTitle>
+        <StyledSubTitle>
+          Created by Field, James (Agile Test Lead), last modified by Avery, Luke (Scrum Master) on May 19, 2022
+        </StyledSubTitle>
+        <StyledGrid>{confluenceDocs()}</StyledGrid>
       </StyledHeader>
     </StyledApp>
   );
